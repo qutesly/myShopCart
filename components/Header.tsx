@@ -13,7 +13,7 @@ import { ClerkLoaded, SignedIn, UserButton } from "@clerk/nextjs";
 const Header = async () => {
   const user = await currentUser();
   return (
-    <header className="py-5 bg-white">
+    <header className="py-5 bg-white/70 sticky top-0 z-50 backdrop-blur-md">
       <Container className="flex items-center justify-between text-lightColor">
         {/* LOGO */}
         <div className="w-auto md:w-1/3 flex items-center justify-start gap-2.5 md:gap-0">

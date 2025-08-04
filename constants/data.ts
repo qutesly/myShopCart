@@ -24,3 +24,10 @@ export const categoriesData = [
   { title: "Kitchen Appliance", href: "kitchen-appliance" },
   { title: "Gadget Accessories", href: "gadget-accessories" },
 ];
+
+export const productType = [
+  { title: "Gadgets", value: "gadgets" },
+  { title: "Appliances", value: "appliances" },
+  { title: "Refrigerators", value: "refrigerators" },
+  { title: "Others", value: "others" },
+];

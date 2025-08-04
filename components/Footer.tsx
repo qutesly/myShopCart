@@ -4,8 +4,9 @@ import FooterTop from "./FooterTop";
 import Logo from "./Logo";
 import { SubText, SubTitle } from "./ui/text";
 import SocialMedia from "./SocialMedia";
-import { quickLinksData } from "@/constants/data";
+import { categoriesData, quickLinksData } from "@/constants/data";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 const Footer = () => {
   return (
@@ -16,8 +17,8 @@ const Footer = () => {
           <div className="space-y-4">
             <Logo />
             <SubText>
-              Discover Curated furnitue furniture collections at MyShopcart,
-              blending style and comfort to elevate your living space
+              Discover Curated furniture collections at MyShopcart, blending
+              style and comfort to elevate your living space
             </SubText>
             <SocialMedia
               className="text-darkColor/60"
@@ -40,8 +41,44 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          <div></div>
-          <div></div>
+          <div>
+            <SubTitle>Categories</SubTitle>
+            <ul className="space-y-3 mt-4">
+              {categoriesData?.map((item) => (
+                <li key={item?.title}>
+                  <Link
+                    href={`/category/${item?.href}`}
+                    className="hover:text-shop_light_green hoverEffect font-medium"
+                  >
+                    {item?.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="space-y-4">
+            <SubTitle>Newsletter</SubTitle>
+            <SubText>
+              Subscribe to our newsletter to receive updates and exclusive
+              offers
+            </SubText>
+            <form className="space-y-3">
+              <input
+                placeholder="Enter your email"
+                type="email"
+                required
+                className="w-full p-2"
+              />
+              <Button className="w-full">Subscribe</Button>
+            </form>
+          </div>
+        </div>
+
+        <div className="py-6 border-t text-center text-sm text-gray-600">
+          <SubText>
+            &copy; {new Date().getFullYear()} <Logo className="text-sm" />. All
+            rights reserved.
+          </SubText>
         </div>
       </Container>
     </footer>

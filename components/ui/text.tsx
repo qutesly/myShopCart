@@ -10,7 +10,7 @@ const Title = ({ children, className }: TextProps) => {
   return (
     <div
       className={cn(
-        "text-3xl font-bold text-shop_dark_green capitalize tracking-wide font-sans",
+        "text-2xl font-bold text-shop_dark_green capitalize tracking-wide font-sans",
         className
       )}
     >
@@ -21,12 +21,7 @@ const Title = ({ children, className }: TextProps) => {
 
 const SubTitle = ({ children, className }: TextProps) => {
   return (
-    <div
-      className={cn(
-        "font-semibold text-gray-900 font-sans",
-        className
-      )}
-    >
+    <div className={cn("font-semibold text-gray-900 font-sans", className)}>
       {children}
     </div>
   );
