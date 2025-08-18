@@ -7,7 +7,7 @@ const AddWishlistButton = ({
   product,
   className,
 }: {
-  product: Product;
+  product: Product | null | undefined;
   className?: string;
 }) => {
   return (

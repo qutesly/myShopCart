@@ -11,25 +11,29 @@ import { Title } from "./ui/text";
 import PriceView from "./PriceView";
 import AddToCartButton from "./AddToCartButton";
 
-const ProductsCard = ({ product }: { product: Product }) => {
+interface Props {
+  product?: Product | null | undefined;
+}
+
+const ProductsCard = ({ product }: Props) => {
   if (product?.images && product.images[0]) {
-    console.log("image object:", product.images[0]);
 
     const imageURL = urlFor(product?.images[0]).url();
-    console.log("Generated image url:", imageURL);
   }
 
   return (
     <div className="text-sm border-[1px] border-dark_blue/20 rounded-md bg-white group">
       <div className="relative group overflow-hidden bg-shop_light_bg">
         {product?.images && (
-          <Image
-            src={urlFor(product?.images[0]).url()}
-            alt="Product Image"
-            width={700}
-            height={700}
-            className={`w-full h-64 object-contain overflow-hidden transition-transform  bg-shop_light_bg hoverEffect ${product?.stock !== 0 ? "group-hover:scale-105" : "opacity-50"} `}
-          />
+          <Link href={`/product/${product?.slug?.current}`}>
+            <Image
+              src={urlFor(product?.images[0]).url()}
+              alt="Product Image"
+              width={700}
+              height={700}
+              className={`w-full h-64 object-contain overflow-hidden transition-transform  bg-shop_light_bg hoverEffect ${product?.stock !== 0 ? "group-hover:scale-105" : "opacity-50"} `}
+            />
+          </Link>
         )}
         <AddWishlistButton product={product} />
         {product?.status === "sale" && (
@@ -86,7 +90,7 @@ const ProductsCard = ({ product }: { product: Product }) => {
           <p
             className={` ${product?.stock === 0 ? "text-red-600" : "text-shop_light_green font-semibold"}`}
           >
-            {(product?.stock as number) > 0 ? product.stock : "unavailable"}
+            {(product?.stock as number) > 0 ? product?.stock : "unavailable"}
           </p>
         </div>
         <PriceView
