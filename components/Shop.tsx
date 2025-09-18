@@ -50,8 +50,6 @@ const Shop = ({ categories, brands }: Props) => {
         ...,"categories": categories[]->title }
         `;
 
-      // console.log({ selectedBrand, selectedCategory, minPrice, maxPrice });
-
       const data = await client.fetch(
         query,
         {
@@ -69,7 +67,7 @@ const Shop = ({ categories, brands }: Props) => {
       setLoading(false);
     }
   };
-  
+
   useEffect(() => {
     fetchProducts();
   }, [selectedCategory, selectedBrand, selectedPrice]);

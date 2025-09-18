@@ -58,7 +58,9 @@ const SingleProductPage = async ({
             </p>
           </div>
           <div className="flex items-center gap-2.5 lg:gap-5">
-            <AddToCartButton product={product} className="rounded-full" />
+            {product && (
+              <AddToCartButton product={product} className="rounded-full" />
+            )}
             <FavoriteButton showProduct={true} product={product} />
           </div>
           <ProductCharacteristics product={product} />

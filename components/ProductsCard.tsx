@@ -6,18 +6,17 @@ import { Flame, StarIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import AddWishlistButton from "./AddWishlistButton";
 import { Title } from "./ui/text";
 import PriceView from "./PriceView";
+import ProductSideMenu from "./ProductSideMenu";
 import AddToCartButton from "./AddToCartButton";
 
 interface Props {
-  product?: Product | null | undefined;
+  product: Product;
 }
 
 const ProductsCard = ({ product }: Props) => {
   if (product?.images && product.images[0]) {
-
     const imageURL = urlFor(product?.images[0]).url();
   }
 
@@ -35,7 +34,7 @@ const ProductsCard = ({ product }: Props) => {
             />
           </Link>
         )}
-        <AddWishlistButton product={product} />
+        <ProductSideMenu product={product} />
         {product?.status === "sale" && (
           <p className="absolute top-2 left-2 z-10 text-xs border border-darkColor/50 px-2 rounded-full group-hover:border-shop_light_green group-hover:text-shop_light_green hoverEffect">
             Sale!
